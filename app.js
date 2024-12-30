@@ -42,7 +42,7 @@ app.post('/webhook', (req, res) => {
 app.post('/send-message', async (req, res) => {
     const { recipient, message } = req.body;
 
-    const url = `https://graph.facebook.com/v16.0/${process.env.PHONE_NUMBER_ID}/messages`;
+    const url = `https://graph.facebook.com/v21.0/${process.env.PHONE_NUMBER_ID}/messages`;
     const payload = {
         messaging_product: 'whatsapp',
         to: recipient,
