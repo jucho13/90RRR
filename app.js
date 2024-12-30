@@ -6,6 +6,10 @@ require('dotenv').config();
 const app = express();
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.send('hola');
+})
+
 // Verificación del webhook
 app.get('/webhook', (req, res) => {
     const verifyToken = process.env.VERIFY_TOKEN;
