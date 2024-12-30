@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 // Verificación del webhook
 app.get('/webhook', (req, res) => {
-    const verifyToken = process.env.VERIFY_TOKEN;
+    const verifyToken = process.env.ACCESS_TOKEN;
     const mode = req.query['hub.mode'];
     const token = req.query['hub.verify_token'];
     const challenge = req.query['hub.challenge'];
@@ -52,7 +52,7 @@ app.post('/send-message', async (req, res) => {
     try {
         const response = await axios.post(url, payload, {
             headers: {
-                Authorization: `Bearer ${process.env.ACCESS_TOKEN}`,
+                Authorization: `Bearer ${process.env.VERIFY_TOKEN}`,
                 'Content-Type': 'application/json',
             },
         });
